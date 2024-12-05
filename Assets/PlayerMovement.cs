@@ -10,13 +10,13 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     public Rigidbody2D rb;
     public bool isJumping;
-
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
