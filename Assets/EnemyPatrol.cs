@@ -10,16 +10,16 @@ public class EnemyPatrol : MonoBehaviour
     private Animator anim;
     private Transform currentPoint;
     public float speed;
-    // Start is called before the first frame update
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         currentPoint = PointB.transform;
-        flip();  // Allows the penguin to flip on start
+        flip();  // Makes the penguin to flip on start
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         Vector2 point = currentPoint.position - transform.position;  // Penguin walk from point to point 
@@ -51,7 +51,7 @@ public class EnemyPatrol : MonoBehaviour
         transform.localScale = localScale;
     }
 
-    private void OnDrawGizmos()  // Allows the points to be seen
+    private void OnDrawGizmos()  // Allows the points to be seen in scene view
     {
         Gizmos.DrawWireSphere(PointA.transform.position, 0.5f);
         Gizmos.DrawWireSphere(PointB.transform.position, 0.5f);

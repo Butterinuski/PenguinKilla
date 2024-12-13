@@ -26,12 +26,12 @@ public class LevelTimer : MonoBehaviour
         // If time runs out, stop the timer and trigger an event
         if (currentTime <= 0f)
         {
-            currentTime = 0f;  // Make sure it doesn't go negative
+            currentTime = 0f;  
             isTimeUp = true;
             OnTimeUp();
         }
 
-        // Update the timer display in minutes and seconds
+        
         UpdateTimerUI();
     }
 
@@ -47,17 +47,16 @@ public class LevelTimer : MonoBehaviour
     void OnTimeUp()
     {
         Debug.Log("Time's up!");
-
-        // You can add more logic here, like showing a "Game Over" message, triggering level end, etc.
-        // For example, you could end the level:
-        // You can trigger level completion or game over logic here:
-        // SceneManager.LoadScene("GameOver"); // If you want to switch scenes when time is up.
     }
 
-    // Optional: Reset the timer (useful for restarting the level or a new game)
+    // Reset the timer 
     public void ResetTimer()
     {
         currentTime = timeLimit;
         isTimeUp = false;
     }
+
+    
 }
+
+

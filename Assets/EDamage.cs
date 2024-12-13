@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class Damage : MonoBehaviour
 {
-    public PlayerHealth pHealth;
+    public PlayerHealth pHealth; // Allows the script to access the players health
     public float damage;
-    public int Deaths;
+    public int Deaths; // Keeps track of the number of deaths
 
     void Update()
     {
@@ -16,10 +16,10 @@ public class Damage : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player")) // Gets the player
         {
             pHealth.currentHealth -= damage;
-            if (pHealth.currentHealth <= 0)
+            if (pHealth.currentHealth <= 0) // Plays death screen
             {
                 SceneManager.LoadScene(Deaths);
             }

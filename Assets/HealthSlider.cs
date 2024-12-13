@@ -22,8 +22,7 @@ public class HealthSlider : MonoBehaviour
         // Update the slider value to reflect the current health
         healthSlider.value = currentHealth;
 
-        // Optionally, you can add logic here for the health bar to change color based on health
-        // Example: Change color to red when health is low
+        
         if (currentHealth <= maxHealth * 0.25f)
         {
             healthSlider.fillRect.GetComponent<Image>().color = Color.red;
@@ -41,7 +40,7 @@ public class HealthSlider : MonoBehaviour
         if (currentHealth < 0) currentHealth = 0;  // Prevent negative health
     }
 
-    // Method to heal the player (if you want to implement healing mechanics)
+    // Method to heal the player 
     public void Heal(float amount)
     {
         currentHealth += amount;

@@ -5,30 +5,25 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
 
-    public float maxHealth = 100;
-    public float currentHealth;
-    public HealthSlider HealthSlider;
+    public float maxHealth = 100; // Set max health
+    public float currentHealth; // Allows to keep track of current health
+    public HealthSlider HealthSlider; // Shows the health slider
     void Start()
     {
-        currentHealth = maxHealth;
-        HealthSlider.currentHealth = maxHealth;
+        currentHealth = maxHealth; // Current health is equal to max health in the beginning
+        HealthSlider.currentHealth = maxHealth; // Health slider is max health in the beginning
     }
 
-    void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
-        currentHealth -= amount;
-        HealthSlider.TakeDamage(amount);
+        currentHealth -= amount; // Makes the player take damage
+        HealthSlider.TakeDamage(amount); // Makes the slider reduce
 
-        if (currentHealth <= 0)
-        {
-            // We're dead
-            // Game over
-
-        }
+        
     }
     public void Heal(float amount)
     {
-        maxHealth += amount;
+        maxHealth += amount; // Lets the player heal
         if (maxHealth > 100f) maxHealth = 100f;  // Prevent health from exceeding max value
 
         // Update the health bar

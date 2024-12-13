@@ -17,11 +17,11 @@ public class PlayerMovement : MonoBehaviour
 
     bool grounded;
 
-    private Animator anim;
+    private Animator anim; // Access the animator
 
     private bool isFacingRight;
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -33,21 +33,21 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        move = Input.GetAxisRaw("Horizontal");
+        move = Input.GetAxisRaw("Horizontal"); // Allows for horizontal movement
 
         rb.velocity = new Vector2(move * speed, rb.velocity.y);
 
         if (move != 0)
         {
-            anim.SetBool("isRunning", true);
+            anim.SetBool("isRunning", true); // Plays the running animation
         }
         else
         {
-            anim.SetBool("isRunning", false);
+            anim.SetBool("isRunning", false); // Stops the animation 
         }
         if (!isFacingRight && move > 0)
         {
-            Flip();
+            Flip(); // Flips depedning on how the player is facing
         }
         else if (isFacingRight && move < 0)
         {
@@ -56,15 +56,15 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && grounded)
         {
-            rb.AddForce(new Vector2(rb.velocity.x, jump * 10));
+            rb.AddForce(new Vector2(rb.velocity.x, jump * 10)); // Allows the player to jump
         }
         if (Input.GetButtonDown("Jump") && grounded)
         {
-            anim.SetBool("isJumping", true);
+            anim.SetBool("isJumping", true); // Plays the jump animation when jumping
         }
         else
         {
-            anim.SetBool("isJumping", false);
+            anim.SetBool("isJumping", false); // Stops the jump animaion when not jumping
         }
     }
 
@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
             grounded = false;
         }
     }
-    public void Flip()
+    public void Flip()  // Flips depedning on how the player is facing
     {
         isFacingRight = !isFacingRight;
         Vector3 localscale = transform.localScale;

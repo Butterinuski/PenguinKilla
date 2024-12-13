@@ -20,11 +20,11 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
-            //random time between minSpawnTime and maxSpawnTime
+            // Random time between minSpawnTime and maxSpawnTime
             float randomTime = Random.Range(minSpawnTime, maxSpawnTime);
             yield return new WaitForSeconds(randomTime);
 
-            //random spawn point
+            // Random spawn point
             Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
             // Instantiate the enemy at the chosen spawn point

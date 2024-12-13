@@ -10,7 +10,7 @@ public class Enemyamage : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             // Get the player's script and call the TakeDamage method
-            PlayerHealthFun player = collision.gameObject.GetComponent<PlayerHealthFun>();
+            PlayerHealth player = collision.gameObject.GetComponent<PlayerHealth>();
             if (player != null)
             {
                 player.TakeDamage(damage); // Deal damage to the player
