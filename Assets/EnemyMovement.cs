@@ -3,23 +3,40 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float health = 100f;
-    public float speed = 2f;  // Enemy speed
-    public Transform player;  // Reference to the player's transform for target movement
+    public float speed = 2f;   // Enemy speed
+    public Transform player;   // Reference to the player's transform
+    public PlayerHealthFun pHealth;
+    public float damage;
+    private SpriteRenderer spriteRenderer;
 
     void Start()
     {
-        flip();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-        // movement towards the player 
+
         if (player != null)
         {
+            // Move towards the player
             Vector3 direction = (player.position - transform.position).normalized;
-            transform.Translate(direction * speed * Time.deltaTime, Space.World);
+
+            // Flip the sprite based on the player's position
+            if (direction.x < 0)
+            {
+                // Flip right 
+                spriteRenderer.flipX = false;
+            }
+            else
+            {
+                // Flip left 
+                spriteRenderer.flipX = true;
+            }
+
+            // Move towards the player
+            transform.Translate(direction * speed * Time.deltaTime);
         }
-        
     }
 
     public void TakeDamage(float damage)
@@ -31,10 +48,5 @@ public class Enemy : MonoBehaviour
         }
     }
 
-private void flip()  // Flips when the penguin touches a point
-    {
-        Vector3 localScale = transform.localScale;
-        localScale.x *= -1;
-        transform.localScale = localScale;
+    
     }
-}

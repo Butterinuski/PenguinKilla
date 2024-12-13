@@ -7,6 +7,7 @@ public class EnemySpawner : MonoBehaviour
     public Transform[] spawnPoints;     // Array of possible spawn points
     public float minSpawnTime = 1f;     // Minimum time 
     public float maxSpawnTime = 5f;     // Maximum time 
+    public Transform player;            // Reference to the player's transform
 
     private void Start()
     {
