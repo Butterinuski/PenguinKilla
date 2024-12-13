@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GunShoot : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class GunShoot : MonoBehaviour
         {
             
             if (Input.GetMouseButtonDown(0)) // Left-click to shoot
-            {
+            { 
                 Shoot();
                 nextFireTime = Time.time + fireRate; // Set time for next shot
             }
@@ -35,5 +36,7 @@ public class GunShoot : MonoBehaviour
 
         
         Destroy(bullet, 2f); // Destroy after 2 seconds
+
+        
     }
 }
